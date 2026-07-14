@@ -1,0 +1,21 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Data & models (regenerate via the pipeline; don't commit large binaries)
+data/raw/*.csv
+data/processed/*.npz
+data/processed/*.joblib
+data/processed/eda_plots/
+models/sklearn/*.joblib
+models/pytorch/*.pt
+models/pytorch/*.joblib
+
+# Logs & alert stores
+logs/*.log
+logs/*.csv
+logs/*.db
+
+.DS_Store
+.env
