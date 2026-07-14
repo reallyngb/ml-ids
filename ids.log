@@ -1,0 +1,101 @@
+2026-07-13 21:27:38 | INFO     | __main__ | Synthetic dataset written to /home/claude/ml-ids/data/raw/sample_traffic.csv (20000 rows, 5 classes)
+2026-07-13 21:27:38 | INFO     | __main__ | Class distribution:
+Label
+BENIGN        15000
+WebAttack      1250
+PortScan       1250
+BruteForce     1250
+DoS            1250
+Name: count, dtype: int64
+2026-07-13 21:28:20 | INFO     | __main__ | Loading raw data from /home/claude/ml-ids/data/raw/sample_traffic.csv
+2026-07-13 21:28:21 | INFO     | __main__ | Loaded 20000 rows, 35 columns
+2026-07-13 21:28:21 | INFO     | __main__ | Dropped identifier columns: ['Flow ID', 'Source IP', 'Destination IP', 'Timestamp']
+2026-07-13 21:28:21 | INFO     | __main__ | Dropped 40 rows with NaN/inf values
+2026-07-13 21:28:21 | INFO     | __main__ | Dropped 0 duplicate rows
+2026-07-13 21:28:21 | INFO     | __main__ | Split sizes -> train: 13972, val: 1996, test: 3992
+2026-07-13 21:28:21 | INFO     | __main__ | Scaled features using standard scaler
+2026-07-13 21:28:21 | INFO     | __main__ | Class distribution before SMOTE: {0: 10482, 1: 3490}
+2026-07-13 21:28:21 | INFO     | __main__ | Class distribution after SMOTE: {0: 10482, 1: 10482}
+2026-07-13 21:28:21 | INFO     | __main__ | Processed data + scaler saved to /home/claude/ml-ids/data/processed
+2026-07-13 21:28:56 | INFO     | src.data.preprocessing | Loading raw data from /home/claude/ml-ids/data/raw/sample_traffic.csv
+2026-07-13 21:28:56 | INFO     | src.data.preprocessing | Loaded 20000 rows, 35 columns
+2026-07-13 21:28:56 | INFO     | src.data.preprocessing | Dropped identifier columns: ['Flow ID', 'Source IP', 'Destination IP', 'Timestamp']
+2026-07-13 21:28:56 | INFO     | src.data.preprocessing | Dropped 40 rows with NaN/inf values
+2026-07-13 21:28:56 | INFO     | src.data.preprocessing | Dropped 0 duplicate rows
+2026-07-13 21:29:12 | INFO     | src.data.preprocessing | Loading raw data from /home/claude/ml-ids/data/raw/sample_traffic.csv
+2026-07-13 21:29:12 | INFO     | src.data.preprocessing | Loaded 20000 rows, 35 columns
+2026-07-13 21:29:12 | INFO     | src.data.preprocessing | Dropped identifier columns: ['Flow ID', 'Source IP', 'Destination IP', 'Timestamp']
+2026-07-13 21:29:12 | INFO     | src.data.preprocessing | Dropped 40 rows with NaN/inf values
+2026-07-13 21:29:12 | INFO     | src.data.preprocessing | Dropped 0 duplicate rows
+2026-07-13 21:29:12 | INFO     | __main__ | Saved class_distribution.png
+2026-07-13 21:29:13 | INFO     | __main__ | Saved correlation_heatmap.png
+2026-07-13 21:29:18 | INFO     | __main__ | Saved feature_importance.png
+2026-07-13 21:29:19 | INFO     | __main__ | Saved boxplots.png
+2026-07-13 21:29:20 | INFO     | __main__ | Saved histograms.png
+2026-07-13 21:29:21 | INFO     | __main__ | Saved pca_visualization.png
+2026-07-13 21:29:21 | INFO     | __main__ | All EDA plots saved to /home/claude/ml-ids/data/processed/eda_plots
+2026-07-13 21:30:04 | INFO     | src.data.preprocessing | Loading raw data from /home/claude/ml-ids/data/raw/sample_traffic.csv
+2026-07-13 21:30:04 | INFO     | src.data.preprocessing | Loaded 20000 rows, 35 columns
+2026-07-13 21:30:04 | INFO     | src.data.preprocessing | Dropped identifier columns: ['Flow ID', 'Source IP', 'Destination IP', 'Timestamp']
+2026-07-13 21:30:04 | INFO     | src.data.preprocessing | Dropped 40 rows with NaN/inf values
+2026-07-13 21:30:04 | INFO     | src.data.preprocessing | Dropped 0 duplicate rows
+2026-07-13 21:30:04 | INFO     | src.data.preprocessing | Split sizes -> train: 13972, val: 1996, test: 3992
+2026-07-13 21:30:04 | INFO     | src.data.preprocessing | Scaled features using standard scaler
+2026-07-13 21:30:04 | INFO     | src.data.preprocessing | Class distribution before SMOTE: {0: 10482, 1: 3490}
+2026-07-13 21:30:04 | INFO     | src.data.preprocessing | Class distribution after SMOTE: {0: 10482, 1: 10482}
+2026-07-13 21:30:04 | INFO     | src.data.preprocessing | Processed data + scaler saved to /home/claude/ml-ids/data/processed
+2026-07-13 21:30:04 | INFO     | __main__ | === Training decision_tree ===
+2026-07-13 21:30:13 | INFO     | __main__ | decision_tree best params: {'max_depth': 10, 'min_samples_split': 10} (CV f1=0.9824, 9.1s)
+2026-07-13 21:30:14 | INFO     | __main__ | decision_tree TEST -> precision=0.9340 recall=0.9649 f1=0.9492 roc_auc=0.9838 FPR=0.0227
+2026-07-13 21:30:14 | INFO     | __main__ | === Training random_forest ===
+2026-07-13 21:32:06 | INFO     | __main__ | random_forest best params: {'max_depth': None, 'n_estimators': 100} (CV f1=0.9878, 111.7s)
+2026-07-13 21:32:24 | INFO     | __main__ | random_forest TEST -> precision=0.9490 recall=0.9709 f1=0.9598 roc_auc=0.9974 FPR=0.0174
+2026-07-13 21:32:24 | INFO     | __main__ | === Training xgboost ===
+2026-07-13 21:32:45 | INFO     | __main__ | xgboost best params: {'learning_rate': 0.3, 'max_depth': 4, 'n_estimators': 200} (CV f1=0.9897, 20.7s)
+2026-07-13 21:32:47 | INFO     | __main__ | xgboost TEST -> precision=0.9622 recall=0.9709 f1=0.9666 roc_auc=0.9982 FPR=0.0127
+2026-07-13 21:32:47 | INFO     | __main__ | === Training logistic_regression ===
+2026-07-13 21:32:48 | INFO     | __main__ | logistic_regression best params: {'C': 10.0} (CV f1=0.9690, 0.7s)
+2026-07-13 21:32:48 | INFO     | __main__ | logistic_regression TEST -> precision=0.8881 recall=0.9709 f1=0.9276 roc_auc=0.9915 FPR=0.0407
+2026-07-13 21:32:48 | INFO     | __main__ | === Training svm ===
+2026-07-13 21:34:16 | INFO     | __main__ | svm best params: {'C': 10.0, 'gamma': 'scale'} (CV f1=0.9789, 87.6s)
+2026-07-13 21:34:51 | INFO     | __main__ | svm TEST -> precision=0.9117 recall=0.9840 f1=0.9465 roc_auc=0.9948 FPR=0.0317
+2026-07-13 21:34:51 | INFO     | __main__ | === Training knn ===
+2026-07-13 21:34:56 | INFO     | __main__ | knn best params: {'n_neighbors': 3} (CV f1=0.9702, 4.8s)
+2026-07-13 21:34:58 | INFO     | __main__ | knn TEST -> precision=0.8618 recall=0.9759 f1=0.9153 roc_auc=0.9782 FPR=0.0521
+2026-07-13 21:34:58 | INFO     | __main__ | Saved decision_tree -> /home/claude/ml-ids/models/sklearn/decision_tree.joblib
+2026-07-13 21:34:58 | INFO     | __main__ | Saved random_forest -> /home/claude/ml-ids/models/sklearn/random_forest.joblib
+2026-07-13 21:34:58 | INFO     | __main__ | Saved xgboost -> /home/claude/ml-ids/models/sklearn/xgboost.joblib
+2026-07-13 21:34:58 | INFO     | __main__ | Saved logistic_regression -> /home/claude/ml-ids/models/sklearn/logistic_regression.joblib
+2026-07-13 21:34:58 | INFO     | __main__ | Saved svm -> /home/claude/ml-ids/models/sklearn/svm.joblib
+2026-07-13 21:34:58 | INFO     | __main__ | Saved knn -> /home/claude/ml-ids/models/sklearn/knn.joblib
+2026-07-13 21:34:58 | INFO     | __main__ | Best model: xgboost (F1=0.9666, FPR=0.0127)
+2026-07-13 21:34:58 | INFO     | __main__ | Comparison table saved to /home/claude/ml-ids/data/processed/ml_model_comparison.csv
+2026-07-13 21:34:58 | INFO     | __main__ | RECOMMENDED MODEL: xgboost
+2026-07-13 21:37:26 | INFO     | __main__ | Loaded xgboost from /home/claude/ml-ids/models/sklearn/xgboost.joblib
+2026-07-14 05:43:29 | INFO     | src.data.preprocessing | Dropped identifier columns: ['Flow ID']
+2026-07-14 05:43:29 | INFO     | src.data.preprocessing | Dropped 3 rows with NaN/inf values
+2026-07-14 05:43:29 | INFO     | src.data.preprocessing | Dropped 0 duplicate rows
+2026-07-14 05:43:29 | INFO     | src.data.preprocessing | Dropped zero-variance columns: ['Feature A', 'Feature B']
+2026-07-14 05:43:29 | INFO     | src.data.preprocessing | Dropped identifier columns: ['Flow ID']
+2026-07-14 05:43:29 | INFO     | src.data.preprocessing | Dropped 3 rows with NaN/inf values
+2026-07-14 05:43:29 | INFO     | src.data.preprocessing | Dropped 0 duplicate rows
+2026-07-14 05:43:29 | INFO     | src.data.preprocessing | Dropped zero-variance columns: ['Feature A', 'Feature B']
+2026-07-14 05:43:30 | INFO     | src.data.preprocessing | Dropped identifier columns: ['Flow ID']
+2026-07-14 05:43:30 | INFO     | src.data.preprocessing | Dropped 3 rows with NaN/inf values
+2026-07-14 05:43:30 | INFO     | src.data.preprocessing | Dropped 0 duplicate rows
+2026-07-14 05:43:30 | INFO     | src.data.preprocessing | Dropped zero-variance columns: ['Feature A', 'Feature B']
+2026-07-14 05:43:30 | INFO     | src.data.preprocessing | Split sizes -> train: 350, val: 50, test: 100
+2026-07-14 05:43:30 | INFO     | src.data.preprocessing | Split sizes -> train: 700, val: 100, test: 200
+2026-07-14 05:43:30 | INFO     | src.data.preprocessing | Scaled features using standard scaler
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Dropped identifier columns: ['Flow ID']
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Dropped 3 rows with NaN/inf values
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Dropped 0 duplicate rows
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Dropped identifier columns: ['Flow ID']
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Dropped 3 rows with NaN/inf values
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Dropped 0 duplicate rows
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Dropped identifier columns: ['Flow ID']
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Dropped 3 rows with NaN/inf values
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Dropped 0 duplicate rows
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Split sizes -> train: 350, val: 50, test: 100
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Split sizes -> train: 700, val: 100, test: 200
+2026-07-14 05:43:49 | INFO     | src.data.preprocessing | Scaled features using standard scaler

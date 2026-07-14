@@ -1,0 +1,74 @@
+# =============================================================================
+# ML-IDS Central Configuration
+# Every script in this project reads settings from here via
+# src/utils/config_loader.py — change values here, not in code.
+# =============================================================================
+
+project:
+  name: "ml-ids"
+  random_seed: 42
+
+paths:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  sklearn_model_dir: "models/sklearn"
+  pytorch_model_dir: "models/pytorch"
+  log_dir: "logs"
+  eda_output_dir: "data/processed/eda_plots"
+
+data:
+  # The dataset is expected in CIC-IDS2017 / CSE-CIC-IDS2018 CSV flow-feature
+  # format (CICFlowMeter output). See README.md "Dataset" section.
+  raw_filename: "sample_traffic.csv"          # swap for real CIC-IDS2017 CSV(s)
+  label_column: "Label"
+  benign_label: "BENIGN"
+  test_size: 0.2
+  val_size: 0.1          # taken out of the remaining training set
+  apply_smote: true
+  scaler: "standard"     # "standard" or "minmax"
+
+  # Columns CICFlowMeter emits that carry no predictive signal / cause leakage
+  drop_columns:
+    - "Flow ID"
+    - "Source IP"
+    - "Destination IP"
+    - "Timestamp"
+
+training:
+  models:
+    - "decision_tree"
+    - "random_forest"
+    - "xgboost"
+    - "logistic_regression"
+    - "svm"
+    - "knn"
+  cv_folds: 5
+  n_jobs: -1
+
+autoencoder:
+  input_dim: null          # auto-filled at runtime from feature count
+  hidden_dims: [64, 32, 16]
+  latent_dim: 8
+  learning_rate: 0.001
+  epochs: 50
+  batch_size: 256
+  early_stopping_patience: 5
+  # threshold_percentile: reconstruction-error percentile (on benign val data)
+  # above which a flow is flagged anomalous
+  threshold_percentile: 95
+
+live_capture:
+  interface: null           # null = scapy auto-selects default interface
+  flow_timeout_seconds: 5   # window over which packets are aggregated into a flow
+  bpf_filter: "ip"          # Berkeley Packet Filter, e.g. "tcp or udp"
+
+alerts:
+  console_colors: true
+  csv_path: "logs/alerts.csv"
+  sqlite_path: "logs/alerts.db"
+  discord_webhook_url: ""   # fill in to enable Discord alerts
+  slack_webhook_url: ""     # fill in to enable Slack alerts
+
+dashboard:
+  refresh_seconds: 2
+  max_rows_shown: 200

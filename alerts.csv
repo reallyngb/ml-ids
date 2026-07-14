@@ -1,0 +1,2 @@
+timestamp,attack_type,source_ip,destination_ip,confidence,model
+2026-07-13T21:37:51.181465+00:00,PortScan,10.0.0.5,192.168.1.10,0.94,xgboost
